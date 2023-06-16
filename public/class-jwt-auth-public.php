@@ -249,13 +249,13 @@ class Jwt_Auth_Public
          */
         list($token) = sscanf($auth, 'Bearer %s');
         if (!$token) {
-            return new WP_Error(
-                'jwt_auth_bad_auth_header',
-                'Authorization header malformed.',
-                array(
-                    'status' => 403,
-                )
-            );
+            // return new WP_Error(
+            //     'jwt_auth_bad_auth_header',
+            //     'Authorization header malformed.',
+            //     array(
+            //         'status' => 403,
+            //     )
+            // );
         }
 
         /** Get the Secret Key */
@@ -308,13 +308,13 @@ class Jwt_Auth_Public
             );
         } catch (Exception $e) {
             /** Something is wrong trying to decode the token, send back the error */
-            return new WP_Error(
-                'jwt_auth_invalid_token',
-                $e->getMessage(),
-                array(
-                    'status' => 403,
-                )
-            );
+            // return new WP_Error(
+            //     'jwt_auth_invalid_token',
+            //     $e->getMessage(),
+            //     array(
+            //         'status' => 403,
+            //     )
+            // );
         }
     }
 
